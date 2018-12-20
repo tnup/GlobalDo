@@ -1,0 +1,2 @@
+# GlobalDo
+global do
