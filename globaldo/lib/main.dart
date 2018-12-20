@@ -7,11 +7,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-      ),
+      theme: ThemeData(),
       home: MyHomePage(),
     );
   }
@@ -37,12 +35,46 @@ class _MyHomePageState extends State<MyHomePage> {
     SystemChrome.setEnabledSystemUIOverlays([]);
     // no rotation
     SystemChrome.setPreferredOrientations([
-        DeviceOrientation.portraitUp,
-      ]);
-    
+      DeviceOrientation.portraitUp,
+    ]);
+
+    var divHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      body:Container(
-        color:Color.fromARGB(255, 0,66, 99),
+      body: Container(
+        height: divHeight / 2 * 0.2,
+        color: Color.fromARGB(255, 0, 66, 99),
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Expanded(
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                        padding: EdgeInsets.all(10.0),
+                        child: Icon(Icons.list, color: Colors.white)
+                    ),
+                    Text("ACTIONS",
+                    style: TextStyle(fontWeight: FontWeight.w100,color: Colors.white),),
+                  ],
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(
+                  Icons.list,
+                  color: Colors.white,
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.all(10.0),
+                child: Icon(
+                  Icons.list,
+                  color: Colors.white,
+                ),
+              ),
+            ]),
       ),
     );
   }
